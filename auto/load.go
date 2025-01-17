@@ -5,10 +5,10 @@ import (
 	"errors"
 	"log"
 
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/utils/cache"
-	"github.com/msterzhang/onelist/config"
+	"github.com/bestmjj/onelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/cache"
+	"github.com/bestmjj/onelistelist/onelist/config"
 	"gorm.io/gorm"
 )
 
@@ -26,8 +26,10 @@ func Load() {
 			return
 		}
 		log.Println("数据库创建成功!", err)
-	} else {
+	} else if config.DBDRIVER == "sqlite3" {
 		InitDatabase()
+	} else {
+		log.Fatal("数据库驱动不存在!")
 	}
 }
 

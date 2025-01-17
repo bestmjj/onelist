@@ -5,9 +5,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/utils/channels"
-	"github.com/msterzhang/onelist/config"
+	"github.com/bestmjj/onelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/channels"
+	"github.com/bestmjj/onelistelist/onelist/config"
 
 	"gorm.io/gorm"
 )

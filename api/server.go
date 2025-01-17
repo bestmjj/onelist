@@ -6,14 +6,14 @@ import (
 	"log"
 	"net/http"
 
+	"github.com/bestmjj/onelist/onelist/api/auth"
+	"github.com/bestmjj/onelist/onelist/api/controllers"
+	"github.com/bestmjj/onelist/onelist/api/crons"
+	"github.com/bestmjj/onelist/onelist/api/middleware"
+	"github.com/bestmjj/onelist/onelist/auto"
+	"github.com/bestmjj/onelist/onelist/config"
+	"github.com/bestmjj/onelist/onelist/public"
 	"github.com/gin-gonic/gin"
-	"github.com/msterzhang/onelist/api/auth"
-	"github.com/msterzhang/onelist/api/controllers"
-	"github.com/msterzhang/onelist/api/crons"
-	"github.com/msterzhang/onelist/api/middleware"
-	"github.com/msterzhang/onelist/auto"
-	"github.com/msterzhang/onelist/config"
-	"github.com/msterzhang/onelist/public"
 )
 
 // 初始化配置及数据库
@@ -62,7 +62,8 @@ func Run() {
 
 	//系统初始化
 	r := gin.Default()
-	r.Use(middleware.CORSMiddleware())
+	logger := middleware.SetupLogger()
+	r.Use(middleware.CORSMiddleware(logger))
 	Static(r)
 	r.GET("/favicon.ico", Faviconico)
 	r.GET("/", IndexView)

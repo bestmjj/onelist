@@ -3,9 +3,9 @@ package crud
 import (
 	"errors"
 
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/utils/channels"
-	"github.com/msterzhang/onelist/config"
+	"github.com/bestmjj/onelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/channels"
+	"github.com/bestmjj/onelistelist/onelist/config"
 
 	"gorm.io/gorm"
 )
@@ -86,7 +86,7 @@ func (r *RepositoryGallerysCRUD) FindAll(page int, size int) ([]models.Gallery, 
 	done := make(chan bool)
 	go func(ch chan<- bool) {
 		defer close(ch)
-		result := r.db.Model(&models.Gallery{}).Select([]string{"created_at", "gallery_type","gallery_uid","id","image","is_alist","is_tv","title","updated_at"}).Find(&gallerys)
+		result := r.db.Model(&models.Gallery{}).Select([]string{"created_at", "gallery_type", "gallery_uid", "id", "image", "is_alist", "is_tv", "title", "updated_at"}).Find(&gallerys)
 		result.Count(&num)
 		if config.DBDRIVER == "sqlite" {
 			err = result.Limit(size).Offset((page - 1) * size).Order("datetime(updated_at) desc").Scan(&gallerys).Error
@@ -104,7 +104,6 @@ func (r *RepositoryGallerysCRUD) FindAll(page int, size int) ([]models.Gallery, 
 	}
 	return nil, 0, err
 }
-
 
 // FindAllByAdmin returns all the gallerys from the DB
 func (r *RepositoryGallerysCRUD) FindAllByAdmin(page int, size int) ([]models.Gallery, int, error) {

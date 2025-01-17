@@ -5,12 +5,12 @@ import (
 	"strconv"
 	"time"
 
+	"github.com/bestmjj/onelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/service"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/cache"
+	"github.com/bestmjj/onelistelist/onelist/config"
 	"github.com/gin-gonic/gin"
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/service"
-	"github.com/msterzhang/onelist/api/utils/cache"
-	"github.com/msterzhang/onelist/config"
 )
 
 func AppIndex(c *gin.Context) {

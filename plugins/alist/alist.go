@@ -11,9 +11,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/config"
+	"github.com/bestmjj/onelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/config"
 )
 
 // 登录alist获取token
@@ -184,7 +184,7 @@ func AlistAliOpenVideo(file string, gallery_uid string) (AliOpenVideo, error) {
 		return AliOpenVideo{}, err
 	}
 	api := fmt.Sprintf("%s/api/fs/other", gallery.AlistHost)
-	form := fmt.Sprintf(`{"path":"%s","password":"","method":"video_preview"}`, strings.ReplaceAll(file,"/d/","/"))
+	form := fmt.Sprintf(`{"path":"%s","password":"","method":"video_preview"}`, strings.ReplaceAll(file, "/d/", "/"))
 	req, err := http.NewRequest("POST", api, bytes.NewBufferString(form))
 	if err != nil {
 		return AliOpenVideo{}, err

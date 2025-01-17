@@ -1,6 +1,6 @@
 package repository
 
-import "github.com/msterzhang/onelist/api/models"
+import "github.com/bestmjj/onelist/onelist/api/models"
 
 type NetworksRepository interface {
 	Save(models.Networks) (models.Networks, error)

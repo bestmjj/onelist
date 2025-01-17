@@ -3,12 +3,12 @@ package controllers
 import (
 	"strconv"
 
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/repository"
-	"github.com/msterzhang/onelist/api/repository/crud"
-	"github.com/msterzhang/onelist/api/service"
-	"github.com/msterzhang/onelist/plugins/thedb"
+	"github.com/bestmjj/onelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/repository"
+	"github.com/bestmjj/onelistelist/onelist/api/repository/crud"
+	"github.com/bestmjj/onelistelist/onelist/api/service"
+	"github.com/bestmjj/onelistelist/onelist/plugins/thedb"
 
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"

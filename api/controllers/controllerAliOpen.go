@@ -1,8 +1,8 @@
 package controllers
 
 import (
+	"github.com/bestmjj/onelist/onelist/plugins/alist"
 	"github.com/gin-gonic/gin"
-	"github.com/msterzhang/onelist/plugins/alist"
 )
 
 func AliOpenVideo(c *gin.Context) {

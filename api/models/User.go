@@ -3,7 +3,7 @@ package models
 import (
 	"time"
 
-	"github.com/msterzhang/onelist/api/security"
+	"github.com/bestmjj/onelist/onelist/api/security"
 
 	"github.com/google/uuid"
 	"gorm.io/gorm"

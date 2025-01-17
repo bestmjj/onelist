@@ -1,6 +1,6 @@
 package repository
 
-import "github.com/msterzhang/onelist/api/models"
+import "github.com/bestmjj/onelist/onelist/api/models"
 
 type CastItemRepository interface {
 	Save(models.CastItem) (models.CastItem, error)

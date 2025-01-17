@@ -1,6 +1,6 @@
 package repository
 
-import "github.com/msterzhang/onelist/api/models"
+import "github.com/bestmjj/onelist/onelist/api/models"
 
 type TheTvRepository interface {
 	Save(models.TheTv) (models.TheTv, error)
@@ -9,6 +9,6 @@ type TheTvRepository interface {
 	UpdateByID(string, models.TheTv) (int64, error)
 	DeleteByID(string) (int64, error)
 	Search(string, int, int) ([]models.TheTv, int, error)
-	Sort(string,string,string, int, int) ([]models.TheTv, int, error)
+	Sort(string, string, string, int, int) ([]models.TheTv, int, error)
 	FindByGalleryId(string, int, int) ([]models.TheTv, int, error)
 }

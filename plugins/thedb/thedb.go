@@ -12,10 +12,10 @@ import (
 	"strings"
 	"time"
 
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/utils/extract"
-	"github.com/msterzhang/onelist/config"
+	"github.com/bestmjj/onelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/extract"
+	"github.com/bestmjj/onelistelist/onelist/config"
 
 	"gorm.io/gorm"
 )
@@ -517,7 +517,27 @@ func RunTheTvWork(file string, GalleryUid string) (int, error) {
 	if len(data.Results) == 0 {
 		return 0, errors.New("tv not found")
 	}
+
 	id := data.Results[0].ID
+	maxEpisodes := 0
+	// 有的影视有多个结果，但是某些结果不全，比如吞噬星空能搜出3个，其中2个只有26集，另一个是全的，如果只是data.Results[0].ID的话，很可能获取到的是不全的,粗暴的获取最多的Episodes作为关键key
+	if len(data.Results) > 1 {
+		for _, result := range data.Results {
+			SeasonNumber, _, err := extract.ExtractNumberWithFile(file)
+			if err != nil {
+				continue
+			}
+			theseason, err := GetTheSeasonData(result.ID, SeasonNumber)
+			if err != nil {
+				continue
+			}
+			if len(theseason.Episodes) > maxEpisodes {
+				maxEpisodes = len(theseason.Episodes)
+				id = result.ID
+			}
+		}
+	}
+
 	thetv, err := TheTvDb(id, file, GalleryUid)
 	if err != nil {
 		return 0, err

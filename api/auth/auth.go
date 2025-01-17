@@ -3,12 +3,12 @@ package auth
 import (
 	"errors"
 
-	"github.com/msterzhang/onelist/api/security"
-	"github.com/msterzhang/onelist/api/utils/channels"
+	"github.com/bestmjj/onelist/onelist/api/security"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/channels"
 
-	"github.com/msterzhang/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
 
-	"github.com/msterzhang/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/database"
 
 	"gorm.io/gorm"
 )

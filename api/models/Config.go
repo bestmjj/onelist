@@ -7,4 +7,6 @@ type Config struct {
 	KeyDb         string `json:"key_db"`
 	FaviconicoUrl string `json:"faviconico_url"`
 	VideoTypes    string `json:"video_types"`
+	TGBotKey      string `json:"tg_bot_key"`
+	TGChatID      string `json:"tg_chat_id"`
 }

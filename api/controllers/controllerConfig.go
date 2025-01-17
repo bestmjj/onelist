@@ -1,17 +1,16 @@
 package controllers
 
 import (
+	"github.com/bestmjj/onelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/config"
 	"github.com/gin-gonic/gin"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/config"
 )
 
 func GetWebConfig(c *gin.Context) {
 	configData := config.GetConfig()
-	configData.KeyDb=""
+	configData.KeyDb = ""
 	c.JSON(200, gin.H{"code": 200, "msg": "获取成功!", "data": configData})
 }
-
 
 func GetConfig(c *gin.Context) {
 	configData := config.GetConfig()

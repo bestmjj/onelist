@@ -3,8 +3,8 @@ package watch
 import (
 	"errors"
 
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
+	"github.com/bestmjj/onelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
 	"gorm.io/gorm"
 )
 

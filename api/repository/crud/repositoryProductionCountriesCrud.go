@@ -3,8 +3,8 @@ package crud
 import (
 	"errors"
 
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/utils/channels"
+	"github.com/bestmjj/onelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/channels"
 
 	"gorm.io/gorm"
 )

@@ -5,7 +5,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/msterzhang/onelist/config"
+	"github.com/bestmjj/onelist/onelist/config"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/driver/sqlite"
@@ -22,9 +22,13 @@ func NewDb() *gorm.DB {
 
 func InitDb() error {
 	var err error
-	dia := sqlite.Open(config.DbName + ".db")
+	var dia gorm.Dialector
 	if config.DBDRIVER == "mysql" {
 		dia = mysql.Open(config.DBURL)
+	} else if config.DBDRIVER == "sqlite" {
+		dia = sqlite.Open(config.DbName + ".db")
+	} else {
+		log.Fatal("数据库驱动不存在!")
 	}
 	db, err = gorm.Open(dia, &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{

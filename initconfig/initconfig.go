@@ -5,12 +5,12 @@ import (
 	"log"
 	"os"
 
-	"github.com/msterzhang/onelist/api"
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/security"
-	"github.com/msterzhang/onelist/api/utils/tools"
-	"github.com/msterzhang/onelist/config"
+	"github.com/bestmjj/onelist/onelist/api"
+	"github.com/bestmjj/onelistelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/security"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/tools"
+	"github.com/bestmjj/onelistelist/onelist/config"
 )
 
 var configEnv = `

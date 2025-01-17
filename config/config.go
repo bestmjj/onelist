@@ -6,8 +6,8 @@ import (
 	"strconv"
 	"strings"
 
+	"github.com/bestmjj/onelist/onelist/api/models"
 	"github.com/joho/godotenv"
-	"github.com/msterzhang/onelist/api/models"
 )
 
 var (
@@ -20,6 +20,8 @@ var (
 	DBURL         = ""
 	DBDATAURL     = ""
 	DbName        = ""
+	TGBotKey      = ""
+	TGChatID      = ""
 	KeyDb         = ""
 	UserEmail     = ""
 	UserPassword  = ""
@@ -68,6 +70,8 @@ func Load() {
 	DownLoadImage = os.Getenv("DownLoadImage")
 	ImgUrl = os.Getenv("ImgUrl")
 	VideoTypes = os.Getenv("VideoTypes")
+	TGBotKey = os.Getenv("TGBOTKEY")
+	TGChatID = os.Getenv("TGCHATID")
 }
 
 // 获取配置
@@ -77,6 +81,8 @@ func GetConfig() models.Config {
 		DownLoadImage: DownLoadImage,
 		ImgUrl:        ImgUrl,
 		KeyDb:         KeyDb,
+		TGBotKey:      TGBotKey,
+		TGChatID:      TGChatID,
 		FaviconicoUrl: FaviconicoUrl,
 		VideoTypes:    VideoTypes,
 	}
@@ -89,6 +95,8 @@ func SetConfig(config models.Config) {
 	DownLoadImage = config.DownLoadImage
 	ImgUrl = config.ImgUrl
 	KeyDb = config.KeyDb
+	TGBotKey = config.TGBotKey
+	TGChatID = config.TGChatID
 	FaviconicoUrl = config.FaviconicoUrl
 	VideoTypes = config.VideoTypes
 }
@@ -103,6 +111,8 @@ func SaveConfig(config models.Config) (models.Config, error) {
 	data = strings.ReplaceAll(data, "DownLoadImage="+DownLoadImage, "DownLoadImage="+config.DownLoadImage)
 	data = strings.ReplaceAll(data, "ImgUrl="+ImgUrl, "ImgUrl="+config.ImgUrl)
 	data = strings.ReplaceAll(data, "FaviconicoUrl="+FaviconicoUrl, "FaviconicoUrl="+config.FaviconicoUrl)
+	data = strings.ReplaceAll(data, "TGBotKey="+TGBotKey, "TGBotKey="+config.TGBotKey)
+	data = strings.ReplaceAll(data, "TGChatID="+TGChatID, "TGChatID="+config.TGChatID)
 	data = strings.ReplaceAll(data, "KeyDb="+KeyDb, "KeyDb="+config.KeyDb)
 	data = strings.ReplaceAll(data, "VideoTypes="+VideoTypes, "VideoTypes="+config.VideoTypes)
 	content := []byte(data)

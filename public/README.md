@@ -1,2 +1,2 @@
 ## onelist-web
-https://github.com/msterzhang/onelist-web/releases
+https://github.com/bestmjj/onelist/onelist-web/releases

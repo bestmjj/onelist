@@ -3,11 +3,11 @@ package watch
 import (
 	"errors"
 
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/utils/dir"
-	"github.com/msterzhang/onelist/plugins/alist"
-	"github.com/msterzhang/onelist/plugins/thedb"
+	"github.com/bestmjj/onelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/utils/dir"
+	"github.com/bestmjj/onelistelist/onelist/plugins/alist"
+	"github.com/bestmjj/onelistelist/onelist/plugins/thedb"
 	"gorm.io/gorm"
 )
 

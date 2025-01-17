@@ -4,10 +4,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/msterzhang/onelist/api/database"
-	"github.com/msterzhang/onelist/api/models"
-	"github.com/msterzhang/onelist/api/repository"
-	"github.com/msterzhang/onelist/api/repository/crud"
+	"github.com/bestmjj/onelist/onelist/api/database"
+	"github.com/bestmjj/onelistelist/onelist/api/models"
+	"github.com/bestmjj/onelistelist/onelist/api/repository"
+	"github.com/bestmjj/onelistelist/onelist/api/repository/crud"
+	"github.com/bestmjj/onelistelist/onelist/plugins/alist"
 
 	"github.com/gin-gonic/gin"
 )
@@ -25,6 +26,14 @@ func CreateGallery(c *gin.Context) {
 	}
 	db := database.NewDb()
 	gallery.AlistHost = strings.TrimRight(gallery.AlistHost, "/")
+	// https://github.com/bestmjj/onelistelist/onelist/issues/97
+	if gallery.IsAlist {
+		_, err := alist.AlistLogin(gallery)
+		if err != nil {
+			c.JSON(200, gin.H{"code": 201, "msg": "alist 验证失败!", "data": err})
+			return
+		}
+	}
 	repo := crud.NewRepositoryGallerysCRUD(db)
 	func(galleryRepository repository.GalleryRepository) {
 		gallery, err := galleryRepository.Save(gallery)
@@ -57,6 +66,14 @@ func UpdateGalleryById(c *gin.Context) {
 	if err != nil {
 		c.JSON(200, gin.H{"code": 201, "msg": "创建失败,表单解析出错!", "data": gallery})
 		return
+	}
+	// https://github.com/bestmjj/onelistelist/onelist/issues/97
+	if gallery.IsAlist {
+		_, err := alist.AlistLogin(gallery)
+		if err != nil {
+			c.JSON(200, gin.H{"code": 201, "msg": "alist 验证失败!", "data": err})
+			return
+		}
 	}
 	db := database.NewDb()
 	repo := crud.NewRepositoryGallerysCRUD(db)
@@ -125,7 +142,6 @@ func GetGalleryListAdmin(c *gin.Context) {
 		c.JSON(200, gin.H{"code": 200, "msg": "查询资源成功!", "data": gallerys, "num": num})
 	}(repo)
 }
-
 
 func GetGalleryHostByUid(c *gin.Context) {
 	id := c.Query("id")

@@ -5,8 +5,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/msterzhang/onelist/api"
-	"github.com/msterzhang/onelist/initconfig"
+	"github.com/bestmjj/onelist/onelist/api"
+	"github.com/bestmjj/onelistelist/onelist/initconfig"
 	"github.com/urfave/cli"
 )
 

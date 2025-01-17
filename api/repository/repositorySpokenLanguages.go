@@ -1,6 +1,6 @@
 package repository
 
-import "github.com/msterzhang/onelist/api/models"
+import "github.com/bestmjj/onelist/onelist/api/models"
 
 type SpokenLanguageRepository interface {
 	Save(models.SpokenLanguage) (models.SpokenLanguage, error)

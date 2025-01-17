@@ -18,7 +18,7 @@ echo "frontend version: $webVersion"
 ldflags="-w -s"
 
 FetchWebDev() {
-  curl -L https://codeload.github.com/msterzhang/onelist-web/tar.gz/refs/heads/dev -o web-dist-dev.tar.gz
+  curl -L https://codeload.github.com/bestmjj/onelist/onelist-web/tar.gz/refs/heads/dev -o web-dist-dev.tar.gz
   tar -zxvf web-dist-dev.tar.gz
   rm -rf public/dist
   mv -f web-dist-dev/dist public
@@ -26,7 +26,7 @@ FetchWebDev() {
 }
 
 FetchWebRelease() {
-  curl -L https://github.com/msterzhang/onelist-web/releases/latest/download/dist.tar.gz -o dist.tar.gz
+  curl -L https://github.com/bestmjj/onelist/onelist-web/releases/latest/download/dist.tar.gz -o dist.tar.gz
   tar -zxvf dist.tar.gz
   rm -rf public/dist
   mv -f dist public
